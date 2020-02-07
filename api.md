@@ -28,7 +28,7 @@ input SignDocumentInput {
 }
 
 type Mutation {
-    login(input: LoginInput): AuthPayload
+    login(input: LoginInput!): AuthPayload
     writeDocument(input: WriteDocumentInput): Document
     signDocument(input: SignDocumentInput): Sign
 }
@@ -58,9 +58,6 @@ type Sign {
     opinion: String
 }
 
-type DocumentCreateConfirmation {
-    code: String!
-}
 
 type AuthPayload {
     token: String
@@ -429,4 +426,3 @@ RESPONSE
     }
 }
 
-```
