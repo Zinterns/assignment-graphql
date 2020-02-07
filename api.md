@@ -4,6 +4,7 @@
 ```graphql
 type Query {
     user_list: [User!]!
+    document_list: [Document!]!
 }
 
 type Mutation {
@@ -167,3 +168,59 @@ RESPONSE
     }
 }
 ```
+
+```graphql
+REQUEST
+query{
+    document_list {
+        id
+        title
+        contents
+        author {
+            id
+            name
+            email
+        }
+        signers {
+            id
+            name
+            email
+        }
+    }
+}
+
+RESPONSE
+{
+    "data": {
+        "document_list": 
+        [
+            {
+                "id": "aslfhdsljfksjkfajks",
+                "title": "새로운 패션 디자인 결재 부탁드립니다",
+                "contents": "일본 시장을 겨냥하여 새로운 패션몰들을 리스트업해봤습니다...",
+                "author" : 
+                {
+                    "id" : "ajsdlkfjsdlkfajdsl",
+                    "name": "kimzigzag",
+                    "email": "kimzigzag@croquis.com",
+                }
+                "signers": 
+                [
+                    {
+                        "id" : "ajsdlkfjsdlkfajdsl",
+                        "name": "kimzigzag",
+                        "email": "kimzigzag@croquis.com",
+                    },
+                    {
+                        "id" : "ajsdlkfjsdlkfajdsl",
+                        "name": "kimzigzag",
+                        "email": "kimzigzag@croquis.com",
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
+
