@@ -5,6 +5,7 @@
 type Query {
     user_list: [User!]!
     document_list: [Document!]!
+    inbox: [Document]!
 }
 
 input LoginInput {
@@ -295,6 +296,135 @@ RESPONSE
                 "name": "onzigzag",
                 "email": "onzigzag@croquis.com",
             }
+        }
+    }
+}
+
+```
+
+## INBOX API
+```graphql
+REQUEST
+query{
+    inbox {
+        id
+        title
+        contents
+        category
+        author {
+            name
+            email
+        }
+    }
+}
+
+RESPONSE
+{
+    "data": {
+        "inbox": 
+        [
+            {
+                "id": "sdlfdlsajflkdjslkfj",
+                "title": "새로운 패션 디자인 결재 부탁드립니다",
+                "contents": "일본 시장을 겨냥하여 새로운 패션몰들을 리스트업해봤습니다...",
+                "author": {
+                    "name": "onzigzag",
+                    "email": "onzigzag@croquis.com",
+            },
+            {
+                "id": "sdlfdlsajflkdjslkfj",
+                "title": "새로운 패션 디자인 결재 부탁드립니다",
+                "contents": "일본 시장을 겨냥하여 새로운 패션몰들을 리스트업해봤습니다...",
+                "author": {
+                    "name": "onzigzag",
+                    "email": "onzigzag@croquis.com",
+            },
+        }
+    }
+}
+
+```
+
+## ARCHIVE API
+```graphql
+REQUEST
+query{
+    archive {
+        id
+        title
+        contents
+        category
+        author {
+            name
+            email
+        }
+    }
+}
+
+RESPONSE
+{
+    "data": {
+        "archive": 
+        [
+            {
+                "id": "sdlfdlsajflkdjslkfj",
+                "title": "새로운 패션 디자인 결재 부탁드립니다",
+                "contents": "일본 시장을 겨냥하여 새로운 패션몰들을 리스트업해봤습니다...",
+                "author": {
+                    "name": "onzigzag",
+                    "email": "onzigzag@croquis.com",
+            },
+            {
+                "id": "sdlfdlsajflkdjslkfj",
+                "title": "새로운 패션 디자인 결재 부탁드립니다",
+                "contents": "일본 시장을 겨냥하여 새로운 패션몰들을 리스트업해봤습니다...",
+                "author": {
+                    "name": "onzigzag",
+                    "email": "onzigzag@croquis.com",
+            },
+        }
+    }
+}
+
+```
+
+## OUTBOX API
+```graphql
+REQUEST
+query{
+    outbox {
+        id
+        title
+        contents
+        category
+        author {
+            name
+            email
+        }
+    }
+}
+
+RESPONSE
+{
+    "data": {
+        "outbox": 
+        [
+            {
+                "id": "sdlfdlsajflkdjslkfj",
+                "title": "새로운 패션 디자인 결재 부탁드립니다",
+                "contents": "일본 시장을 겨냥하여 새로운 패션몰들을 리스트업해봤습니다...",
+                "author": {
+                    "name": "onzigzag",
+                    "email": "onzigzag@croquis.com",
+            },
+            {
+                "id": "sdlfdlsajflkdjslkfj",
+                "title": "새로운 패션 디자인 결재 부탁드립니다",
+                "contents": "일본 시장을 겨냥하여 새로운 패션몰들을 리스트업해봤습니다...",
+                "author": {
+                    "name": "onzigzag",
+                    "email": "onzigzag@croquis.com",
+            },
         }
     }
 }
