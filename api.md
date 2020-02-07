@@ -2,6 +2,10 @@
 
 ## Basic Schemas
 ```graphql
+type Query {
+    user_list: [User!]!
+}
+
 type Mutation {
     login(email: String!, password: String!, name: String!): AuthPayload
     writedocument(title: String!, contetns: String!, category: Category!, signers: [String!]!): Document
@@ -75,9 +79,9 @@ RESPONSE
 {
     "data": {
         "login": {
-            "token" : "asdkjflsdhflasdjlkfjasdlkfjkjwrpjdlkfjsadlknvlj"
+            "token" : "asdkjflsdhflasdjlkfjasdlkfjkjwrpjdlkfjsadlknvlj",
             "user" : {
-                id: "1"
+                id: "1",
                 name: "kimzigzag"
             }
 
@@ -113,16 +117,53 @@ RESPONSE
 {
     "data": {
         "writedocument": {
-            "id": "asehfsjfh1"
-            "title": "새로운 패션 디자인 결재 부탁드립니다"
-            "contents": "일본 시장을 겨냥하여 새로운 패션몰들을 리스트업해봤습니다..."
-            "category": NORMAL // or "NORMAL?"
+            "id": "asehfsjfh1",
+            "title": "새로운 패션 디자인 결재 부탁드립니다",
+            "contents": "일본 시장을 겨냥하여 새로운 패션몰들을 리스트업해봤습니다...",
+            "category": NORMAL // or "NORMAL?",
             "signers": {
-                "id": "saeifjsdlfkj123"
-                "name": "kimzigzag"
-                "email": "kimzigzag@croquis.com"
-            }
+                "id": "saeifjsdlfkj123",
+                "name": "kimzigzag",
+                "email": "kimzigzag@croquis.com",
+            },
         }
+    }
+}
+```
+
+## 유저 리스트 api
+```graphql
+REQUEST
+query {
+    user_list {
+            id
+            name
+            email
+        }
+    }
+}
+
+RESPONSE
+{
+    "data": {
+        "user_list": 
+            [
+                {
+                    "id": "asehfsjfh1",
+                    "name": "kimzigzag",
+                    "email": "kimzigzag@croquis.com",
+                },
+                {
+                    "id": "asehfsjfh1",
+                    "name": "leezigzag",
+                    "email": "leezigzag@croquis.com",
+                },
+                {
+                    "id": "asehfsjfh1",
+                    "name": "onzigzag",
+                    "email": "onzigzag@croquis.com",
+                },
+            ]
     }
 }
 ```
